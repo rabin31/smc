@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 
 export default function Academics() {
-  const [hoveredItem, setHoveredItem] = useState(null);
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   
   const bachelorsPrograms = [
     { id: 'bca', title: 'Bachelors In Computer Application' },
@@ -14,6 +14,16 @@ export default function Academics() {
   const mastersPrograms = [
     { id: 'mca', title: 'Masters In Computer Application' }
   ];
+
+  interface ProgramCardProps {
+    id: string;
+    title: string;
+    onMouseEnter: (id: string) => void;
+    onMouseLeave: () => void;
+    isHovered: boolean;
+    isDark: boolean;
+  }
+  
   
   const ProgramButton: React.FC<{
     id: string;

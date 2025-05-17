@@ -1,6 +1,12 @@
 import React from "react";
 import { Calendar, GraduationCap } from "lucide-react";
-import { discoverData, SideCardData } from "./DiscoverData";
+import { discoverData } from "./DiscoverData";
+
+interface SideCardData {
+  image: string;
+  title: string;
+  tag: keyof typeof IconMap;
+}
 
 const IconMap = {
   Study: <GraduationCap className="w-4 h-4 text-red-600" />,
@@ -81,14 +87,18 @@ const Discover = () => {
         {/* Side Cards */}
         <div className="md:col-span-2 lg:col-span-2 order-2 flex flex-col">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-6">
-            {discoverData.sideCards.map((card: SideCardData, idx) => (
-              <div key={idx} className="sm:col-span-1">
-                <SideCard
-                  {...card}
-                  tag={card.tag as keyof typeof IconMap}
-                />
-              </div>
-            ))}
+            {discoverData.sideCards.map((card, idx) => {
+              const tag = card.tag as keyof typeof IconMap;
+              if (!IconMap[tag]) return null; // Skip invalid tags
+              return (
+                <div key={idx} className="sm:col-span-1">
+                  <SideCard
+                    {...card}
+                    tag={tag}
+                  />
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

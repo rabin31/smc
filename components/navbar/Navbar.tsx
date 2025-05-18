@@ -212,7 +212,7 @@ const Navbar = () => {
       >
         <div className="container mx-auto px-4 py-6">
           <div className="flex justify-between items-center mb-8">
-            <img src="./logo1.png" alt="HighFive Adventures" className="h-8" />
+            <img src="./whitelogo.png" alt="HighFive Adventures" className="h-8" />
             <button
               onClick={toggleNav}
               className="text-white"

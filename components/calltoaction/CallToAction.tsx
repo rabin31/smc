@@ -3,12 +3,13 @@ import { Search } from 'lucide-react';
 
 const CallToAction = () => {
   return (
-    <div className="h-[40vh] w-full bg-[#1B153E] text-white flex items-center px-12">
-      <div className="flex flex-col gap-4">
-        <h1 className="text-3xl md:text-4xl font-serif">
+    <div className="w-full bg-[#1B153E] text-white flex flex-col lg:flex-row items-center px-6 md:px-12 py-12 gap-8 lg:gap-0">
+      {/* Left Content */}
+      <div className="flex flex-col gap-4 w-full lg:w-1/2">
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-serif">
           Join the world class
         </h1>
-        <p className="text-md text-gray-300">
+        <p className="text-sm md:text-base text-gray-300">
           Study with us in June, July and September 2025
         </p>
         <a
@@ -19,19 +20,20 @@ const CallToAction = () => {
         </a>
       </div>
 
-      <div className="ml-auto flex flex-col gap-4 w-[50%]">
-        <div className="flex h-14 w-full">
+      {/* Right Content */}
+      <div className="w-full lg:w-1/2 flex flex-col gap-4">
+        <div className="flex h-12 md:h-14 w-full">
           <input
             type="text"
             placeholder="Search for courses"
-            className="flex-1 px-6 text-lg text-[#1B153E] bg-white outline-none font-serif"
+            className="flex-1 px-4 md:px-6 text-sm md:text-lg text-[#1B153E] bg-white outline-none font-serif"
           />
-          <button className="w-16 bg-red-600 flex items-center justify-center">
-            <Search className="text-white" size={24} />
+          <button className="w-12 md:w-16 bg-red-600 flex items-center justify-center">
+            <Search className="text-white" size={20} />
           </button>
         </div>
 
-        <div className="flex justify-between text-sm font-semibold">
+        <div className="flex flex-col sm:flex-row sm:justify-between gap-2 sm:gap-0 text-xs md:text-sm font-semibold">
           {['Undergraduate courses', 'Postgraduate courses', 'Foundation programmes'].map((label, i) => (
             <a
               key={i}
